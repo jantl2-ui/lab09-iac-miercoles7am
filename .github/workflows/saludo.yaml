@@ -1,0 +1,19 @@
+name: Saludo
+
+on: 
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludo desde main
+        if: github.ref == 'refs/head/main'
+        run: echo "Hola desde main, soy Jan"
+        
+      - name: Saludo desde develop
+        if: github.ref == 'refs/head/develop'
+        run: echo "Hola desde develop, soy Jan"
